@@ -1,6 +1,10 @@
 <div class="wrapper">
   <h1 class="title">{{ title }}</h1>
 
-  <app-product [product]="product[0]"></app-product>
-  <app-product [product]="product[1]"></app-product>
+  <!-- <app-product [product]="product[0]"></app-product>
+  <app-product [product]="product[1]"></app-product> -->
+
+  <p class="p1" *ngIf="loading">Loading...</p>
+
+  <app-product *ngFor="let product of product$ | async; let i = index" [product]="product"></app-product>
 </div>

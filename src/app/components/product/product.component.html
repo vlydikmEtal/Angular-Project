@@ -5,10 +5,12 @@
     Price: <span class="price">{{ product.price | currency : 'RUB' }}</span>
   </p>
 
-  <button (click)="details = !details">Show Details</button>
+  <button (click)="details = !details" 
+  [ngStyle]="{'background-color': !details ? 'orange' : '#FD4D35'}"
+  >{{ details ? 'Hide' : 'Show' }} Details</button>
 
   <div class="details" *ngIf="details">
     <p>{{ product.description }}</p>
-    <p>Rate: <span class="price">{{ product.rating.rate }}</span></p>
+    <p>Rate: <span class="price">{{ product.rating.rate | number: '1.2-2' }}</span></p>
   </div>
 </div>
